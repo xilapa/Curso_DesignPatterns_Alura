@@ -98,6 +98,30 @@ namespace CursoDesignPatterns1
 
             Console.WriteLine(totalImposto2);
             #endregion
+
+            #region State
+
+            var orcamentoComEstado = new OrcamentoComEstados(100);
+            Console.WriteLine(orcamentoComEstado.Valor);
+
+            orcamentoComEstado.AplicaDescontoExtra();
+            Console.WriteLine(orcamentoComEstado.Valor);
+
+            orcamentoComEstado.Aprovar();
+            orcamentoComEstado.AplicaDescontoExtra();
+            Console.WriteLine(orcamentoComEstado.Valor);
+
+            //orcamentoComEstado.AplicaDescontoExtra();
+            Console.ReadKey();
+
+
+            // Exemplo conta bancária
+            Console.WriteLine("Conta Bancária");
+            var contaBancariaComEstados = new ContaBancariaComEstados();
+            contaBancariaComEstados.Sacar(100);
+            contaBancariaComEstados.Sacar(200);
+
+            #endregion
         }
 
     }
