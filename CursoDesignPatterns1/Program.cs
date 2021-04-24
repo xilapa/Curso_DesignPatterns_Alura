@@ -119,7 +119,26 @@ namespace CursoDesignPatterns1
             Console.WriteLine("Conta Bancária");
             var contaBancariaComEstados = new ContaBancariaComEstados();
             contaBancariaComEstados.Sacar(100);
-            contaBancariaComEstados.Sacar(200);
+            //contaBancariaComEstados.Sacar(200); gera exceção, saldo negativo
+
+            #endregion
+
+            #region Builder
+
+            Console.WriteLine("Builder");
+            var nfBuilder = new NotaFiscalBuilder();
+            var nota = nfBuilder
+                            .ComCNPJ("123456/0001-9")
+                            .ParaEmpresa("Empresa")
+                            .ComItem(new ItemDaNota("caneta", 15.0m))
+                            .ComItem(new ItemDaNota("borracha", 25.0m))
+                            .ComObservacao("observação")
+                            .NaDataAtual()
+                            .Build();
+
+            Console.WriteLine(nota.Impostos);
+            Console.WriteLine(nota.ValorBruto);
+            Console.ReadKey();
 
             #endregion
         }
