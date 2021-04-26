@@ -133,11 +133,22 @@ namespace CursoDesignPatterns1
                             .ComItem(new ItemDaNota("caneta", 15.0m))
                             .ComItem(new ItemDaNota("borracha", 25.0m))
                             .ComObservacao("observação")
-                            .NaDataAtual()
                             .Build();
 
             Console.WriteLine(nota.Impostos);
             Console.WriteLine(nota.ValorBruto);
+            Console.ReadKey();
+
+            #endregion
+
+            #region Observer
+
+            Console.WriteLine("Observer");
+            var criaNotaFiscalComObserver = new CriaNotaFiscalComObserver();
+            criaNotaFiscalComObserver.AdicionarAcoes(new EnviaNFEmail());
+            criaNotaFiscalComObserver.AdicionarAcoes(new EnviaNFporSMs());
+            criaNotaFiscalComObserver.AdicionarAcoes(new ImprimeValorNFx2());
+            criaNotaFiscalComObserver.Criar("empresa A", "1223456/00099-1", 15000.0m);
             Console.ReadKey();
 
             #endregion

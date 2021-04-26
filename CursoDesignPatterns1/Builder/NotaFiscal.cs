@@ -24,5 +24,13 @@ namespace CursoDesignPatterns1
             Observacoes = observacoes;
             Items = items;
         }
+
+        // construtor para exemplo do observer
+        public NotaFiscal(string empresa, string cnpj, decimal valor)
+        {
+            this.RazaoSocial = empresa;
+            CNPJ = cnpj;
+            this.ValorBruto = valor;
+        }
     }
 }
